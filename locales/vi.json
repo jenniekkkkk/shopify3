@@ -13,11 +13,11 @@
     "social": {
       "alt_text": {
         "share_on_facebook": "Chia sẻ trên Facebook",
-        "share_on_twitter": "Tweet trên Twitter",
+        "share_on_twitter": "Chia sẻ trên X",
         "share_on_pinterest": "Ghim trên Pinterest"
       },
       "links": {
-        "twitter": "Twitter",
+        "twitter": "X (Twitter)",
         "facebook": "Facebook",
         "pinterest": "Pinterest",
         "instagram": "Instagram",
@@ -119,7 +119,9 @@
         "maximum_of": "Tối đa {{ quantity }}",
         "multiples_of": "Số lượng gia tăng {{ quantity }}",
         "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}<\/span> trong giỏ hàng",
-        "note": "Xem quy tắc số lượng"
+        "note": "Xem quy tắc số lượng",
+        "min_of": "Tối thiểu {{ quantity }}",
+        "max_of": "Tối đa {{ quantity }}"
       },
       "price": {
         "from_price_html": "Từ {{ price }}",
@@ -211,10 +213,6 @@
     }
   },
   "templates": {
-    "404": {
-      "title": "Không tìm thấy trang",
-      "subtext": "404"
-    },
     "search": {
       "no_results": "Không tìm thấy kết quả cho \"{{ terms }}\". Kiểm tra chính tả hoặc sử dụng một từ hoặc cụm từ khác.",
       "results_with_count": {
@@ -258,6 +256,10 @@
         "error_heading": "Vui lòng điều chỉnh các mục sau:",
         "title": "Biểu mẫu liên hệ"
       }
+    },
+    "404": {
+      "title": "Không tìm thấy trang",
+      "subtext": "404"
     }
   },
   "sections": {
@@ -358,14 +360,21 @@
       "total_items": "Tổng số mặt hàng",
       "remove_all_items_confirmation": "Xóa tất cả {{ quantity }} mặt hàng khỏi giỏ hàng của bạn?",
       "remove_all": "Xóa tất cả",
-      "cancel": "Hủy"
+      "cancel": "Hủy",
+      "remove_all_single_item_confirmation": "Xóa 1 mặt hàng khỏi giỏ hàng?",
+      "min_error": "Mặt hàng này có tối thiểu {{ min }}",
+      "max_error": "Mặt hàng này có tối đa {{ max }}",
+      "step_error": "Bạn chỉ có thể thêm mặt hàng này theo đơn vị giao dịch {{ step }}"
     }
   },
   "localization": {
     "country_label": "Quốc gia\/khu vực",
     "language_label": "Ngôn ngữ",
     "update_language": "Cập nhật ngôn ngữ",
-    "update_country": "Cập nhật quốc gia\/khu vực"
+    "update_country": "Cập nhật quốc gia\/khu vực",
+    "search": "Tìm kiếm",
+    "popular_countries_regions": "Quốc gia\/khu vực phổ biến",
+    "country_results_count": "Đã tìm thấy {{ count }} quốc gia\/khu vực"
   },
   "customer": {
     "account": {
@@ -418,7 +427,8 @@
       "password": "Mật khẩu",
       "title": "Đăng nhập",
       "sign_in": "Đăng nhập",
-      "submit": "Gửi"
+      "submit": "Gửi",
+      "alternate_provider_separator": "hoặc"
     },
     "orders": {
       "title": "Lịch sử đặt hàng",
@@ -507,51 +517,6 @@
       "send_on_label": "Ngày gửi (tùy chọn)",
       "expanded": "Đã mở rộng biểu mẫu người nhận thẻ quà tặng",
       "collapsed": "Đã thu nhỏ biểu mẫu người nhận thẻ quà tặng"
-    }
-  },
-  "pagefly": {
-    "products": {
-      "product": {
-        "regular_price": "Regular price",
-        "sold_out": "Sold out",
-        "unavailable": "Unavailable",
-        "on_sale": "Sale",
-        "quantity": "Quantity",
-        "add_to_cart": "Add to cart",
-        "back_to_collection": "Back to {{ title }}",
-        "view_details": "View details"
-      }
-    },
-    "article": {
-      "tags": "Tags:",
-      "all_topics": "All topics",
-      "by_author": "by {{ author }}",
-      "posted_in": "Posted in",
-      "read_more": "Read more",
-      "back_to_blog": "Back to {{ title }}"
-    },
-    "comments": {
-      "title": "Leave a comment",
-      "name": "Name",
-      "email": "Email",
-      "message": "Message",
-      "post": "Post comment",
-      "moderated": "Please note, comments must be approved before they are published",
-      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
-      "success": "Your comment was posted successfully! Thank you!",
-      "comments_with_count": {
-        "one": "{{ count }} comment",
-        "other": "{{ count }} comments"
-      }
-    },
-    "password_page": {
-      "login_form_message": "Enter store using password:",
-      "login_form_password_label": "Password",
-      "login_form_password_placeholder": "Your password",
-      "login_form_submit": "Enter",
-      "signup_form_email_label": "Email",
-      "signup_form_success": "We will send you an email right before we open!",
-      "password_link": "Enter using password"
     }
   }
 }
