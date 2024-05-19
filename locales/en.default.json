@@ -1,5 +1,9 @@
 {
   "general": {
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
     "password_page": {
       "login_form_heading": "Enter store using password:",
       "login_password_button": "Enter using password",
@@ -63,7 +67,7 @@
     "button_label": "Subscribe"
   },
   "accessibility": {
-    "skip_to_text": "Skip to content",
+    "skip_to_content": "Skip to content",
     "skip_to_product_info": "Skip to product information",
     "close": "Close",
     "unit_price_separator": "per",
