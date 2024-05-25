@@ -61,7 +61,7 @@
 <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
 
   <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-    {{ 'accessibility.skip_to_content' | t }}
+    {{ 'accessibility.skip_to_text' | t }}
   </a>
 
   {%- sections 'header-group' -%}
@@ -76,7 +76,7 @@
 
   {% section 'footer' %}
 
-  {{ 'app.js' | asset_url | async script_tag }}
+  {{ 'app.js' | asset_url | script_tag }}
 
 
 </body>
