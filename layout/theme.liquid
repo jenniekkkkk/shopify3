@@ -76,7 +76,7 @@
 
   {% section 'footer' %}
 
-  {{ 'app.js' | asset_url |  script_tag }}
+  {{ 'app.js' | asset_url | async script_tag }}
 
 
 </body>
