@@ -3,7 +3,7 @@
       <a class="navbar-brand" href="#">
           <img src="{{section.settings.logo | image_url:'master' }}" alt="" width="{{section.settings.logo_max_width}}px"  height="">
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle ="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -14,7 +14,6 @@
                   <li class="nav-item dropdown">
                     <a href="{{ link.url }}" class="nav-link dropdown-toggle" href="#" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       {{ link.title }}
-                     
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       {% for childlink in link.links %}
@@ -41,7 +40,7 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <div class="dropdown-item-text">
-                        {% include 'mini-cart' %}
+                        {% render 'mini-cart' %}
                     </div>
                 </div>
               </li>
