@@ -1,20 +1,19 @@
 <!doctype html>
 <html class="no-js supports-no-cookies" lang="{{ shop.locale }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_accent }}">
+    <link rel="canonical" href="{{ canonical_url }}">
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="{{ settings.color_accent }}">
-  <link rel="canonical" href="{{ canonical_url }}">
+    {%- if settings.favicon != blank -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {%- endif -%}
 
-  {%- if settings.favicon != blank -%}
-  <link rel="shortcut icon" href="{{ settings.favicon | image_url: '32x32' }}" type="image/png">
-  {%- endif -%}
+    <!-- Test comment -->
 
-  <!-- Test comment -->
-
-  {%- capture seo_title -%}
+    {%- capture seo_title -%}
   {{ page_title }}
   {%- if current_tags -%}
   {%- assign meta_tags = current_tags | join: ', ' -%} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
@@ -27,58 +26,51 @@
   &ndash; {{ shop.name }}
   {%- endunless -%}
   {%- endcapture -%}
-  <title>{{ seo_title | strip }}</title>
+    <title>{{ seo_title | strip }}</title>
 
-  {%- if page_description -%}
-  <meta name="description" content="{{ page_description | escape }}">
-  {%- endif -%}
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
 
-{% comment %} {% include 'social-meta-tags' %} {% endcomment %}
+    {% comment %} {% include 'social-meta-tags' %} {% endcomment %}
 
-  {% comment %} {% include 'css-variables' %}  {% endcomment %}
+    {% comment %} {% include 'css-variables' %}  {% endcomment %}
 
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', '');
 
+      window.theme = {
+        strings: {
+          addToCart: {{ 'products.product.add_to_cart' | t | json }},
+      soldOut: { { 'products.product.sold_out' | t | json } },
+      unavailable: { { 'products.product.unavailable' | t | json } }
+        },
+      moneyFormat: { { shop.money_format | json } }
+      };
+    </script>
 
-  <script>
-    document.documentElement.className = document.documentElement.className.replace('no-js', '');
+    {{ content_for_header }}
 
-    window.theme = {
-      strings: {
-        addToCart: {{ 'products.product.add_to_cart' | t | json }},
-    soldOut: { { 'products.product.sold_out' | t | json } },
-    unavailable: { { 'products.product.unavailable' | t | json } }
-      },
-    moneyFormat: { { shop.money_format | json } }
-    };
-  </script>
+    {{ 'app.css' | asset_url | stylesheet_tag }}
+  </head>
 
-  {{ content_for_header }}
+  <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
+      {{ 'accessibility.skip_to_text' | t }}
+    </a>
 
-  {{ "app.css" | asset_url | stylesheet_tag }}
+    {%- sections 'header-group' -%}
 
-</head>
+    <div id="app">
+      <!-- 这里是你的 Vue 应用的内容 -->
+    </div>
 
-<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
 
-  <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-    {{ 'general.accessibility.skip_to_content' | t }}
-  </a>
+    {% section 'footer' %}
 
-  {%- sections 'header-group' -%}
-
-  <div id="app">
-        <!-- 这里是你的 Vue 应用的内容 -->
-   </div>
-
-  <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
-    {{ content_for_layout }}
-  </main>
-
-  {% section 'footer' %}
-  {% assign script_url = 'app.js' | asset_url %} 
-  <script src="{{ script_url }}" async></script>
-
-
-</body>
-
+    {{ 'app.js' | asset_url | script_tag }}
+  </body>
 </html>
