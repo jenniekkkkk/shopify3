@@ -71,6 +71,7 @@
 
     {% section 'footer' %}
 
-    {{ 'app.js' | asset_url | script_tag }}
+    {% assign script_url = 'app.js' | asset_url %}
+    <script src="{{ script_url }}" async></script>
   </body>
 </html>
